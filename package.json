@@ -1,0 +1,25 @@
+{
+  "name": "knock",
+  "version": "0.0.0",
+  "description": "A general purpose resource checker.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "joshgillies/node-knock"
+  },
+  "keywords": [
+    "knock",
+    "knocker",
+    "ping",
+    "check",
+    "checker",
+    "request",
+    "response",
+    "availability"
+  ],
+  "author": "Josh Gillies",
+  "license": "MIT"
+}
