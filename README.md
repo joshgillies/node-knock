@@ -23,7 +23,7 @@ Example:
 ```javascript
 var Knock = require('knock')
 var options = {
-  'door': 'http://myresource.com/blah,
+  'door': 'http://myresource.com/blah',
   'frequency': 1000, 60, 5,
   'retries': 5
 }
