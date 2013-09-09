@@ -20,6 +20,10 @@
     "response",
     "availability"
   ],
-  "author": "Josh Gillies",
+  "author" : {
+    "name" : "Josh Gillies",
+    "email" : "contact@joshgilli.es",
+    "url" : "http://joshgilli.es"
+  },
   "license": "MIT"
 }
