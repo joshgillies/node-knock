@@ -12,34 +12,29 @@ Options:
 
 ```javascript
 {
-  'door': String,
-  'frequency': Number,
-  'retries': Number
+  'host': String,
+  'path': String,
 }
 ```
 
 Example:
 
 ```javascript
-var Knock = require('knock')
-var options = {
-  'door': 'http://myresource.com/blah',
-  'frequency': 1000 * 60 * 5,
-  'retries': 5
-}
-var door = new Knock(options);
+var Knock = require('knock');
+var resource = Knock({
+  host: 'www.google.com',
+  path: '/somepath'
+});
 
-door.on('open', function() {
-  // door has been opened
-}
+setInterval(function() {
+  resource.response(function(err, res) {
+    // err is returned if resource hasn't been updated since we last checked.
+    if (err) return console.log(err);
 
-door.on('close', function() {
-  // door has been closed
-}
-
-door.on('error', function() {
-  // try again?
-}
-
-door.knock()
+    // res is returned when the resource has been updated.
+    // res is the same Readable Stream you'd recieve from http.request
+    var modified = new Date(res.headers['last-modified']);
+    console.log('Resource updated! See: ', modified);
+  });
+}, 60 * 1000);
 ```

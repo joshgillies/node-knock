@@ -1,6 +1,6 @@
 {
   "name": "knock",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A general purpose resource checker.",
   "main": "index.js",
   "scripts": {
