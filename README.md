@@ -1,4 +1,4 @@
-# node-knoq
+# Knoq
 
 A general purpose resource checker.
 
@@ -8,7 +8,7 @@ see what's shaking.
 
 If you can curl it you can Knoq it.
 
-Example:
+# Example
 
 ```javascript
 var Knoq = require('knoq');
@@ -26,3 +26,11 @@ setInterval(function() {
   });
 }, 60 * 1000);
 ```
+
+# Install
+
+`npm install knoq`
+
+# License
+
+MIT
