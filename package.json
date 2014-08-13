@@ -1,29 +1,29 @@
 {
-  "name": "knock",
+  "name": "knoq",
   "version": "0.0.1",
-  "description": "A general purpose resource checker.",
+  "description": "A general purpose web resource checker.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "joshgillies/node-knock"
+    "url": "https://github.com/joshgillies/node-knoq.git"
   },
   "keywords": [
+    "Knoq",
     "knock",
     "knocker",
     "ping",
     "check",
     "checker",
     "request",
-    "response",
-    "availability"
+    "response"
   ],
-  "author" : {
-    "name" : "Josh Gillies",
-    "email" : "contact@joshgilli.es",
-    "url" : "http://joshgilli.es"
+  "author": "Josh Gillies <npm@joshgilli.es> (http://joshgilli.es/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joshgillies/node-knoq/issues"
   },
-  "license": "MIT"
+  "homepage": "https://github.com/joshgillies/node-knoq"
 }

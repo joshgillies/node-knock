@@ -1,16 +1,19 @@
 var http = require('http');
+var url = require('url');
 
-module.exports = Knock;
+module.exports = Knoq;
 
-function Knock(opts) {
-  if (!(this instanceof Knock)) return new Knock(opts);
+function Knoq(opts) {
+  if (!(this instanceof Knoq)) return new Knoq(opts);
+  if (typeof opts === 'string') opts = url.parse(opts);
   if (!opts) opts = {};
   this.opts = opts;
   this.lastModified = null;
   this.options = {
     method: 'GET',
     host: this.opts.host,
-    path: this.opts.path
+    path: this.opts.path,
+    port: this.opts.port || 80
   };
 
   this.update = function(callback) {
@@ -25,7 +28,6 @@ function Knock(opts) {
         self.lastModified = modified;
         return callback(null);
       }
-      console.log(headers);
       return callback('resource not updated');
     }).on('error', function(err) {
       return callback(err);
@@ -33,7 +35,7 @@ function Knock(opts) {
   };
 }
 
-Knock.prototype.response= function(callback) {
+Knoq.prototype.response = function(callback) {
   var self = this;
   var options = self.options;
 

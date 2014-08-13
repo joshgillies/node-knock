@@ -1,30 +1,18 @@
-# node-knock
+# node-knoq
 
 A general purpose resource checker.
 
-With node-knock in the same way you'd knock on a door
-to see who's home you can knock on a web resource to
+With Knoq in the same way you'd knock on a door
+to see who's home you can Knoq a web resource to
 see what's shaking.
 
-If you can ping it you can knock it.
-
-Options:
-
-```javascript
-{
-  'host': String,
-  'path': String,
-}
-```
+If you can curl it you can Knoq it.
 
 Example:
 
 ```javascript
-var Knock = require('knock');
-var resource = Knock({
-  host: 'www.google.com',
-  path: '/somepath'
-});
+var Knoq = require('knoq');
+var resource = Knoq('www.google.com/somepath');
 
 setInterval(function() {
   resource.response(function(err, res) {
