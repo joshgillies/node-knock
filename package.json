@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/joshgillies/node-knoq/issues"
   },
-  "homepage": "https://github.com/joshgillies/node-knoq"
+  "homepage": "https://github.com/joshgillies/node-knoq",
+  "dependencies": {
+    "curli": "^0.2.0"
+  }
 }
