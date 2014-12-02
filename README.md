@@ -15,7 +15,7 @@ var resource = Knoq('http://www.google.com/');
 resource.on('response', function(res) {
   console.log('EventEmitter');
   console.log(res.statusCode);
-  mountain.end();
+  resource.end();
 });
 
 resource.on('end', function() {
