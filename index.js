@@ -25,17 +25,13 @@ var Knoq = function Knoq(uri, opts, callback) {
   }
   if (uri !== undefined) opts.uri = uri;
 
-  var self = this;
-
   EventEmitter.call(this);
 
   this.uri = opts.uri;
   this.pending = false;
   this.running = true;
 
-  this.interval = setInterval(function() {
-    self.preRequest();
-  }, opts.delay);
+  this.interval = setInterval(this.preRequest.bind(this), opts.delay);
 
   if (callback) {
     this.on('error', function(err) {
@@ -55,19 +51,20 @@ Knoq.prototype.preRequest = function preRequest() {
 };
 
 Knoq.prototype.request = function request() {
-  var self = this;
+  var onResponse = function onResponse(res) {
+    this.pending = false;
+    this.emit('response', res);
+  };
+  var onError = function onError(err) {
+    this.emit('error', err);
+    this.end();
+  };
 
-  self.pending = true;
+  this.pending = true;
 
-  var req = hyperquest(self.uri);
-  req.on('response', function(res) {
-    self.pending = false;
-    self.emit('response', res);
-  });
-  req.on('error', function(err) {
-    self.emit('error', err);
-    self.end();
-  });
+  var req = hyperquest(this.uri);
+  req.on('response', onResponse.bind(this));
+  req.on('error', onError.bind(this));
 
 };
 
