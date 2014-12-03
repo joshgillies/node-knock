@@ -45,9 +45,12 @@ var Knoq = function Knoq(uri, opts, callback) {
 
 inherits(Knoq, EventEmitter);
 
+Knoq.prototype.ready = function ready() {
+  return !this.pending && this.running;
+};
+
 Knoq.prototype.preRequest = function preRequest() {
-  if (!this.pending && this.running)
-    this.request();
+  if (this.ready()) this.request();
 };
 
 Knoq.prototype.request = function request() {
