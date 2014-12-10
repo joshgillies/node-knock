@@ -29,9 +29,10 @@ var Knoq = function Knoq(uri, opts, callback) {
 
   this.uri = opts.uri;
   this.pending = false;
-  this.running = true;
+  this.running = false;
+  this.delay = opts.delay;
 
-  this.interval = setInterval(this.preRequest.bind(this), opts.delay);
+  this.start();
 
   if (callback) {
     this.on('error', function(err) {
@@ -47,6 +48,13 @@ inherits(Knoq, EventEmitter);
 
 Knoq.prototype.ready = function ready() {
   return !this.pending && this.running;
+};
+
+Knoq.prototype.start = function start() {
+  if (!this.running)
+    process.nextTick(this.preRequest.bind(this));
+  this.running = true;
+  this.setInterval = setInterval(this.preRequest.bind(this), this.delay);
 };
 
 Knoq.prototype.preRequest = function preRequest() {
@@ -68,11 +76,10 @@ Knoq.prototype.request = function request() {
   var req = hyperquest(this.uri);
   req.on('response', onResponse.bind(this));
   req.on('error', onError.bind(this));
-
 };
 
 Knoq.prototype.end = function end() {
-  if (this.interval) clearInterval(this.interval);
+  if (this.setInterval) clearInterval(this.setInterval);
   this.pending = false;
   this.running = false;
   this.emit('end');
