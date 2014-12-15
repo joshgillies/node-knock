@@ -1,6 +1,6 @@
 {
   "name": "knoq",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A interval based Node module for continuous retrieval of web resources.",
   "main": "index.js",
   "scripts": {
