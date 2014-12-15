@@ -1,7 +1,7 @@
 {
   "name": "knoq",
   "version": "0.0.1",
-  "description": "A timer based Node module for continuous retrieval of web resources.",
+  "description": "A interval based Node module for continuous retrieval of web resources.",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js"

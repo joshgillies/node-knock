@@ -1,6 +1,6 @@
 # Knoq
 
-A timer based Node module for continuous retrieval of web resources.
+A interval based Node module for continuous retrieval of web resources.
 
 With Knoq in the same way you'd knock on a door
 to see who's home you can Knoq a web resource to
