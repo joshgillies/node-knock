@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/joshgillies/node-knoq",
   "dependencies": {
-    "hyperquest": "^1.0.1",
+    "hyperquest": "^1.2.0",
     "inherits": "^2.0.1"
   },
   "devDependencies": {

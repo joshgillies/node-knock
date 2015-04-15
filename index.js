@@ -73,6 +73,11 @@ Knoq.prototype.preRequest = function preRequest () {
 Knoq.prototype.request = function request () {
   var req = hyperquest(this.uri)
 
+  function onRequest (req) {
+    this.pending = true
+    this.emit('request', req)
+  }
+
   function onResponse (res) {
     this.pending = false
     this.emit('response', res)
@@ -83,6 +88,7 @@ Knoq.prototype.request = function request () {
     this.end()
   }
 
+  req.on('request', onRequest.bind(this))
   req.on('response', onResponse.bind(this))
   req.on('error', onError.bind(this))
 }
