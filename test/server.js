@@ -1,9 +1,9 @@
-var http = require('http');
+var http = require('http')
 
-exports.createServer = function createServer() {
+exports.createServer = function createServer () {
   var server = http.createServer(function (req, res) {
-    server.emit(req.url, req, res);
-  });
+    server.emit(req.url, req, res)
+  })
 
-  return server;
-};
+  return server
+}

@@ -4,7 +4,8 @@
   "description": "A interval based Node module for continuous retrieval of web resources.",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.js"
+    "lint": "standard",
+    "test": "npm run lint && tape test/*.js"
   },
   "repository": {
     "type": "git",
@@ -31,9 +32,9 @@
     "inherits": "^2.0.1"
   },
   "devDependencies": {
-    "jshint": "^2.5.10",
-    "precommit-hook": "^1.0.7",
+    "precommit-hook": "^2.0.1",
     "servertest": "^1.1.1",
+    "standard": "^3.6.1",
     "tape": "^3.0.3"
   }
 }
