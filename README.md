@@ -2,10 +2,6 @@
 
 A interval based Node module for continuous retrieval of web resources.
 
-With Knoq in the same way you'd knock on a door
-to see who's home you can Knoq a web resource to
-see what's shaking.
-
 [![build status](https://secure.travis-ci.org/joshgillies/node-knoq.svg)](http://travis-ci.org/joshgillies/node-knoq)
 
 [![NPM](https://nodei.co/npm/knoq.png?downloads=true&stars=true)](https://nodei.co/npm/knoq/)
@@ -66,6 +62,10 @@ Calling `req.end()` clears all timeouts, and stops `Knoq` from making any furthe
 # Events
 
 `Knoq` returns an instance of `EventEmitter`, and exposes the following events:
+
+## req.on('request', function (req) {})
+
+The `request` event bubbles up from `http.request()`.
 
 ## req.on('response', function (res) {})
 
